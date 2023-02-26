@@ -7,6 +7,9 @@ Library/
 # Ignore the Temp folder
 Temp/
 
+# Ignore the Logs folder
+Logs/
+
 # Ignore build files
 *.apk
 *.unitypackage
