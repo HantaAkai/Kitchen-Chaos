@@ -1,0 +1,26 @@
+# Ignore Unity meta files
+*.meta
+
+# Ignore the Library folder
+Library/
+
+# Ignore the Temp folder
+Temp/
+
+# Ignore build files
+*.apk
+*.unitypackage
+*.dll
+*.pdb
+
+# Ignore the obj folder for C# projects
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
+*.booproj
+*.pidb
+*.builds
+*.vs/
+
+# Ignore any other files or folders that you want to exclude
