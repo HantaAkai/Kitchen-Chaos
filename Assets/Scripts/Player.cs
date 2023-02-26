@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+
+    [SerializeField] private float moveSpeed;
+
     private void Update() {
 
         Vector2 inputVector = new Vector2(0, 0);
@@ -24,6 +27,10 @@ public class Player : MonoBehaviour {
         }
 
         inputVector = inputVector.normalized;
+
+        Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        transform.position += moveDirection * Time.deltaTime * moveSpeed;
 
         Debug.Log(inputVector);
     }
