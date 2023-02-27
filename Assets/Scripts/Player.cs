@@ -15,11 +15,13 @@ public class Player : MonoBehaviour {
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
 
-        float playerSize = .7f;
-        bool canMove = !Physics.Raycast(transform.position, moveDirection, playerSize);
+        float moveDistance = moveSpeed * Time.deltaTime;
+        float playerRadius = .7f;
+        float playerHeight = 2f;
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirection, moveDistance);
 
         if (canMove) {
-            transform.position += moveDirection * Time.deltaTime * moveSpeed;
+            transform.position += moveDirection * moveDistance;
         }
 
         isWalking = moveDirection != Vector3.zero;
