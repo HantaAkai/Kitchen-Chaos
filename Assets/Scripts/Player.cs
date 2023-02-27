@@ -20,6 +20,32 @@ public class Player : MonoBehaviour {
         float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirection, moveDistance);
 
+        if (!canMove) {
+            //Cannot move towards moveDirection
+
+            //Attempt only X movement
+            Vector3 moveDirectionX = new Vector3(moveDirection.x, 0, 0);
+            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionX, moveDistance);
+
+            if (canMove) {
+                //Can move only on the X axis
+                moveDirection = moveDirectionX;
+            } else {
+                //Cannot move on the X
+
+                //Attempt to move on the Z
+                Vector3 moveDirectionZ = new Vector3(0, 0, moveDirection.z);
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionZ, moveDistance);
+                if (canMove) {
+                    //Can move only on the Z axis
+                    moveDirection = moveDirectionZ;
+                } else {
+                    //Cannot move in any direction
+                    Debug.Log("Cannot move in any direction");
+                }
+            }
+        }
+
         if (canMove) {
             transform.position += moveDirection * moveDistance;
         }
