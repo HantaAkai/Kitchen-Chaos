@@ -54,31 +54,14 @@ public class Player : MonoBehaviour {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)) {
                 //Has clear counter
                 if (clearCounter != selectedCounter) {
-                    selectedCounter = clearCounter;
-
-                    // EventsWithArgs 3 fire the event
-                    //for the args we need to construc an object of the given type
-                    OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
-                        //assign to an obj property some value
-                        selectedCounter = selectedCounter
-                    }) ;
+                    SetSelectedCounter(clearCounter);
                 }
             } else {
-                selectedCounter = null;
-
-                OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
-                    selectedCounter = selectedCounter
-                });
+                SetSelectedCounter(null);
             } 
         } else {
-            selectedCounter = null;
-
-            OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
-                selectedCounter = selectedCounter
-            });
+            SetSelectedCounter(null);
         }
-
-        Debug.Log(selectedCounter);
     }
 
     private void HandleMovement() {
@@ -125,5 +108,13 @@ public class Player : MonoBehaviour {
 
         float rotationSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
+    }
+
+    private void SetSelectedCounter (ClearCounter selectedCounter) {
+        this.selectedCounter = selectedCounter;
+
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+            selectedCounter = selectedCounter
+        });
     }
 }
