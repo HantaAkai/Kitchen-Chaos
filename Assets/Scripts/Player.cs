@@ -1,8 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+
+    // EventsWithArgs 1 Create an event
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    //  EventsWithArgs 2 create a class with arguments
+    public class OnSelectedCounterChangedEventArgs : EventArgs {
+        public ClearCounter selectedCounter;
+    }
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private GameInput gameInput;
@@ -47,12 +55,27 @@ public class Player : MonoBehaviour {
                 //Has clear counter
                 if (clearCounter != selectedCounter) {
                     selectedCounter = clearCounter;
-                } 
+
+                    // EventsWithArgs 3 fire the event
+                    //for the args we need to construc an object of the given type
+                    OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+                        //assign to an obj property some value
+                        selectedCounter = selectedCounter
+                    }) ;
+                }
             } else {
                 selectedCounter = null;
+
+                OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+                    selectedCounter = selectedCounter
+                });
             } 
         } else {
             selectedCounter = null;
+
+            OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+                selectedCounter = selectedCounter
+            });
         }
 
         Debug.Log(selectedCounter);
