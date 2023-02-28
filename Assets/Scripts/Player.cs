@@ -5,9 +5,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    // EventsWithArgs 1 Create an event
+    // SINGLETON
+    // 1 Create a field for the instance
+    // 2 Create a static (one for the class) property of instance 
+    // 3 set up get-set
+    //
+    //private static Player instance;
+    //public static Player Instance {
+    //    get { return instance; }
+    //    set { instance = value; }
+    //}
+    //
+    //Code above can be simplified into code below. The same property with the same functionality
+    //Additionally add accessors to hte get-set ers
+    public static Player Instance { get; private set; }
+    
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
-    //  EventsWithArgs 2 create a class with arguments
     public class OnSelectedCounterChangedEventArgs : EventArgs {
         public ClearCounter selectedCounter;
     }
@@ -19,6 +32,17 @@ public class Player : MonoBehaviour {
     private bool isWalking;
     private Vector3 lastInteractDirection;
     private ClearCounter selectedCounter;
+
+    // SINGLETON
+    // 4 Define instance on awake
+    // Add safety check
+    private void Awake() {
+        if (Instance != null) {
+            Debug.LogError("There is more than one Player Instance");
+        }
+        
+        Instance = this;
+    }
 
     private void Start() {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
