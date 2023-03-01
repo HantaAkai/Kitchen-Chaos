@@ -5,19 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    // SINGLETON
-    // 1 Create a field for the instance
-    // 2 Create a static (one for the class) property of instance 
-    // 3 set up get-set
-    //
-    //private static Player instance;
-    //public static Player Instance {
-    //    get { return instance; }
-    //    set { instance = value; }
-    //}
-    //
-    //Code above can be simplified into code below. The same property with the same functionality
-    //Additionally add accessors to hte get-set ers
+    
     public static Player Instance { get; private set; }
     
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
@@ -33,9 +21,6 @@ public class Player : MonoBehaviour {
     private Vector3 lastInteractDirection;
     private ClearCounter selectedCounter;
 
-    // SINGLETON
-    // 4 Define instance on awake
-    // Add safety check
     private void Awake() {
         if (Instance != null) {
             Debug.LogError("There is more than one Player Instance");
