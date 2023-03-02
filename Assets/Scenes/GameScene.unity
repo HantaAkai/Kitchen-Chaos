@@ -327,6 +327,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 212999669043034723, guid: 1ee386ce4786fdb4eb3a2e6325d140c3,
+        type: 3}
+      propertyPath: tomatoPrefab
+      value: 
+      objectReference: {fileID: 1570606902527550409, guid: 64197d70ceaf12d4985d92e7c6837f5a,
+        type: 3}
     - target: {fileID: 4540570578493753796, guid: 1ee386ce4786fdb4eb3a2e6325d140c3,
         type: 3}
       propertyPath: m_RootOrder
@@ -345,7 +351,7 @@ PrefabInstance:
     - target: {fileID: 4540570578493753796, guid: 1ee386ce4786fdb4eb3a2e6325d140c3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.39774
+      value: 4.29
       objectReference: {fileID: 0}
     - target: {fileID: 4540570578493753796, guid: 1ee386ce4786fdb4eb3a2e6325d140c3,
         type: 3}
@@ -1040,7 +1046,7 @@ PrefabInstance:
     - target: {fileID: 4540570578493753796, guid: 1ee386ce4786fdb4eb3a2e6325d140c3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.39774
+      value: 4.29
       objectReference: {fileID: 0}
     - target: {fileID: 4540570578493753796, guid: 1ee386ce4786fdb4eb3a2e6325d140c3,
         type: 3}
