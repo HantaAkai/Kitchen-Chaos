@@ -28,3 +28,4 @@ public class SelectedCounterVisual : MonoBehaviour
         visualGameObject.SetActive(false);
     }
 }
+ 
