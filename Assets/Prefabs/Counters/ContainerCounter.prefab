@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTopPoint: {fileID: 8583870043068062815}
-  kitchenObjectSO: {fileID: 11400000, guid: 471f8eb7fd0ba264eadca6f92c7a5520, type: 2}
+  kitchenObjectSO: {fileID: 11400000, guid: f235f58cd1187eb4b83c2219332882ce, type: 2}
 --- !u!4 &8583870043068062815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8964325582575017660, guid: cae8af949511ac442970c71223e7a316,
@@ -420,7 +420,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896,
+      objectReference: {fileID: 21300000, guid: da2d04fe27b94e34ea0b624569b48a6f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
