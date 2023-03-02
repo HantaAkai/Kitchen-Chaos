@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour, IKitchenObjectParent
+public class ContainerCounter : MonoBehaviour, IKitchenObjectParent
 {
+
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
     [SerializeField] private Transform counterTopPoint;
 
-    
     private KitchenObject kitchenObject;
 
     public void Interact(Player player) {
@@ -19,18 +19,18 @@ public class ClearCounter : MonoBehaviour, IKitchenObjectParent
             kitchenObject.SetKitchenObjectParent(player);
         }
 
-        
+
     }
 
     public Transform GetKitchenObjectFollowTransform() {
         return counterTopPoint;
     }
 
-    public void SetKitchenObject(KitchenObject kitchenObject) { 
+    public void SetKitchenObject(KitchenObject kitchenObject) {
         this.kitchenObject = kitchenObject;
     }
 
-    public KitchenObject GetKitchenObject() { 
+    public KitchenObject GetKitchenObject() {
         return kitchenObject;
     }
 
@@ -38,9 +38,7 @@ public class ClearCounter : MonoBehaviour, IKitchenObjectParent
         kitchenObject = null;
     }
 
-    public bool HasKithcenObject() { 
+    public bool HasKithcenObject() {
         return kitchenObject != null;
     }
-
 }
- 
