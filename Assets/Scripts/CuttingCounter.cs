@@ -12,7 +12,10 @@ public class CuttingCounter : BaseCounter
 
             if (player.HasKithcenObject()) {
                 //Player has something
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKithcenObjectSO())) { 
+                    //Player has something that can be cut
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                }
             } else {
                 //Player has nothing
             }
@@ -30,14 +33,24 @@ public class CuttingCounter : BaseCounter
     }
 
     public override void InteractAlternative(Player player) {
-        if (HasKithcenObject()) {
-            //There is a KitchenObject here
+        if (HasKithcenObject() && HasRecipeWithInput(GetKitchenObject().GetKithcenObjectSO())) {
+            //There is a KitchenObject here AND it can be cut
             KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKithcenObjectSO());
 
             GetKitchenObject().DestroySelf();
 
             KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
         } 
+    }
+
+    private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO) {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray) {
+            if (cuttingRecipeSO.input == inputKitchenObjectSO) {
+                return true;
+            }
+
+        }
+        return false;
     }
 
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO) {
