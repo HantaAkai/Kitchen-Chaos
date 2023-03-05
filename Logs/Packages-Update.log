@@ -42,3 +42,11 @@ The following packages were updated:
   com.unity.ide.visualstudio from version 2.0.14 to 2.0.17
   com.unity.render-pipelines.universal from version 12.1.3 to 12.1.10
   com.unity.visualscripting from version 1.7.6 to 1.8.0
+
+=== Sun Mar  5 21:30:04 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 2.0.0 to 2.0.1
