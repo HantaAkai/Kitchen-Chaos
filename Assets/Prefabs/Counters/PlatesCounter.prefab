@@ -62,7 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTopPoint: {fileID: 1554115321860824486}
-  kitchenObjectSO: {fileID: 11400000, guid: 09cd2fe75afe3e6479c3bf32036db33b, type: 2}
+  plateKitchenObjectSO: {fileID: 11400000, guid: 09cd2fe75afe3e6479c3bf32036db33b,
+    type: 2}
 --- !u!1 &7165100512175304328
 GameObject:
   m_ObjectHideFlags: 0
