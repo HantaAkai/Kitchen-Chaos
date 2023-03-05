@@ -1126,11 +1126,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4133377451527501393, guid: 6a7de0a8a2994214cb9c8feb1b58801d,
-        type: 3}
-      propertyPath: fryingRecipeSOArray.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8150974434733804999, guid: 6a7de0a8a2994214cb9c8feb1b58801d,
         type: 3}
       propertyPath: m_RootOrder
