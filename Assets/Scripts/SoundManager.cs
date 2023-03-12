@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour {
 
     [SerializeField] private AudioClipReferencesSO audioClipReferencesSO;
 
+    private float volume  = 1f;
+
 
     private void Awake() {
         Instance = this;
@@ -55,12 +57,26 @@ public class SoundManager : MonoBehaviour {
     private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f) {
         PlaySound(audioClipArray[Random.Range(0, audioClipArray.Length)], position, volume);
     }
-    private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f) {
-        AudioSource.PlayClipAtPoint(audioClip, position, volume);
+    private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f) {
+        AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);
     }
 
     public void PlayFootstepSound(Vector3 position, float volume) {
         PlaySound(audioClipReferencesSO.footstep, position, volume);
+    }
+
+    public void ChangeVolume() {
+        volume += .1f;
+
+        if (volume > 1f) {
+            //This caused random issues. Floats are not that precise, screw it here
+            //volume = volume % 1.1f;
+            volume = 0f;
+        }
+    }
+
+    public float GetVolume() { 
+        return volume;
     }
 
 }
