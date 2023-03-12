@@ -96,7 +96,7 @@ public class KitchenGameManager : MonoBehaviour {
         return gamePlayingTimer / gamePlayingTimerMax;
     }
 
-    private void TogglePauseGame() {
+    public void TogglePauseGame() {
         isGamePaused = !isGamePaused;
         if (isGamePaused) {
             Time.timeScale = 0f;
